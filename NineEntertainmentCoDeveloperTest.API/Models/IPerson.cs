@@ -13,5 +13,6 @@ namespace NineEntertainmentCoDeveloperTest.API.Models
          string Name { get; set; }
          int Age { get; set; }
          string ToString();
+         double GetHeight();
     }
 }
