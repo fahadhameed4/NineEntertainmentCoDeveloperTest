@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NineEntertainmentCoDeveloperTest.Models;
+using NineEntertainmentCoDeveloperTest.Services;
 
 namespace NineEntertainmentCoDeveloperTest
 {
@@ -33,6 +35,9 @@ namespace NineEntertainmentCoDeveloperTest
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+           
+            services.AddScoped<IPersonService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +61,7 @@ namespace NineEntertainmentCoDeveloperTest
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Person}/{action=Index}/{id?}");
             });
         }
     }

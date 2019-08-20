@@ -8,11 +8,11 @@ namespace NineEntertainmentCoDeveloperTest.API.Models
     /// <summary>
     /// This is person interface 
     /// </summary>
-   public interface IPerson
+   public interface IPersonService
     {
-         string Name { get; set; }
-         int Age { get; set; }
-         string ToString();
-         double GetHeight();
+        List<Person> InitPeople();
+        double GetHeight(Person person);
+        List<Person> AddYearToAge(List<Person> persons);
+        List<Person> GetPersonsByRace(Races race);
     }
 }
