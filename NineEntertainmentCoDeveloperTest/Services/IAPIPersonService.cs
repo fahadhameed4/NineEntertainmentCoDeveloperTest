@@ -8,9 +8,9 @@ namespace NineEntertainmentCoDeveloperTest.Services
     interface IAPIPersonService
     {
         int GetNumberofPeople();
-        int GetMiAge();
+        int GetMinAge();
         int GetMaxAge();
-        int GetAverageAge();
+        decimal GetAverageAge();
         int CountNumberofPeopleRace();
        
     }
