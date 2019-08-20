@@ -12,7 +12,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// <summary>
         /// List of People
         /// </summary>
-        List<APIPerson> people = new List<APIPerson>();
+        List<Person> people = new List<Person>();
         public PersonService()
         {
             this.people =  this.InitPeople();
@@ -21,13 +21,13 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// this method adds people to list randomly
         /// </summary>
         /// <returns></returns>
-        public List<APIPerson> InitPeople()
+        public List<Person> InitPeople()
         {
-            List<APIPerson> people = new List<APIPerson>();
+            List<Person> people = new List<Person>();
             Random rnd = new Random();
             for (int i = 0; i < 10000; i++)
             {
-                people.Add(new APIPerson()
+                people.Add(new Person()
                 {
                     Name = "Person #" + i.ToString(),
                     Age = rnd.Next(1, 99),
@@ -42,9 +42,9 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// <param name="persons"></param>
         /// <returns></returns>
 
-        public List<APIPerson> AddYearToAge(List<APIPerson> persons)
+        public List<Person> AddYearToAge(List<Person> persons)
         {
-            foreach(APIPerson person in persons)
+            foreach(Person person in persons)
             {
                 person.Age = +1;
             }
@@ -82,7 +82,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// </summary>
         /// <returns></returns>
  
-        public List<APIPerson>  GetAllRaces()
+        public List<Person>  GetAllRaces()
         {
             return this.people;
 
@@ -93,7 +93,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// <param name="race"></param>
         /// <returns></returns>
 
-        public List<APIPerson> GetPersonsByRace(Races race) 
+        public List<Person> GetPersonsByRace(Races race) 
         {
             return this.people.Where(x => x.Race == race && x.Age%2==0).OrderBy(x=>x.Age).ToList();
         }
@@ -103,7 +103,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        public double GetHeight(APIPerson person)
+        public double GetHeight(Person person)
         { 
             switch(person.Race)
             {

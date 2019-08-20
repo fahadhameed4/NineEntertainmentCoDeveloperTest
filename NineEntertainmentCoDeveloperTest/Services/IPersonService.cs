@@ -11,11 +11,11 @@ namespace NineEntertainmentCoDeveloperTest.Models
     /// </summary>
    public interface IPersonService
     {
-        List<APIPerson> InitPeople();
-        List<APIPerson> AddYearToAge(List<APIPerson> persons);
+        List<Person> InitPeople();
+        List<Person> AddYearToAge(List<Person> persons);
         Races GetRace(int raceId);
-        double GetHeight(APIPerson person);
-        List<APIPerson> GetAllRaces();
-        List<APIPerson> GetPersonsByRace(Races race);
+        double GetHeight(Person person);
+        List<Person> GetAllRaces();
+        List<Person> GetPersonsByRace(Races race);
     }
 }
