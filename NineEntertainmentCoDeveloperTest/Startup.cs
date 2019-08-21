@@ -35,9 +35,10 @@ namespace NineEntertainmentCoDeveloperTest
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-           
+            //Added services and interfaces to inject them in controllers
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IAPIPersonService, APIPersonService>();
+            services.AddScoped<ILoggerService, LoggerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

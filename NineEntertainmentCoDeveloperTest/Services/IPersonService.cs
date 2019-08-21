@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NineEntertainmentCoDeveloperTest.Models
+namespace NineEntertainmentCoDeveloperTest.Services
 {
     /// <summary>
     /// This is person interface 

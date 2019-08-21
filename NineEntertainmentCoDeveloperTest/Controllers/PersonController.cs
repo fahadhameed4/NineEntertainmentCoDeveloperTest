@@ -5,22 +5,40 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NineEntertainmentCoDeveloperTest.Models;
+using NineEntertainmentCoDeveloperTest.Services;
 
 namespace NineEntertainmentCoDeveloperTest.Controllers
 {
     public class PersonController : Controller
     {
 
+        private readonly ILoggerService _loggerService;
         private readonly IPersonService _personService;
-        public PersonController(IPersonService personService)
+        public PersonController(IPersonService personService, ILoggerService loggerService)
         {
             _personService = personService;
+            _loggerService = loggerService;
 
         }
         public ActionResult Index()
         {
            
             return View();
+        }
+
+        public ActionResult GetPeopleRaces(int Raceid)
+        {
+            var peoplelist = new List<Person>();
+            try
+            {
+                peoplelist = _personService.GetPersonsByRace(_personService.GetRace(Raceid));
+            }
+
+            catch (Exception ex)
+            {
+                _loggerService.Handle("", ex.ToString());
+            }
+            return PartialView(peoplelist);
         }
 
         // GET: Person/Details/5
@@ -57,6 +75,8 @@ namespace NineEntertainmentCoDeveloperTest.Controllers
         {
             return View();
         }
+
+
 
         // POST: Person/Edit/5
         [HttpPost]

@@ -34,7 +34,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
                     Race =  GetRace( rnd.Next(1, 4))
                 });
             }
-            return people;
+            return  people;
         }
         /// <summary>
         /// Add one one year to existing age
@@ -93,9 +93,9 @@ namespace NineEntertainmentCoDeveloperTest.Services
         /// <param name="race"></param>
         /// <returns></returns>
 
-        public List<Person> GetPersonsByRace(Races race) 
+        public  List<Person> GetPersonsByRace(Races race) 
         {
-            return this.people.Where(x => x.Race == race && x.Age%2==0).OrderBy(x=>x.Age).ToList();
+            return   this.people.Where(x => x.Race == race && x.Age%2==0).OrderBy(x=>x.Age).ToList();
         }
         
         /// <summary>
@@ -125,5 +125,7 @@ namespace NineEntertainmentCoDeveloperTest.Services
             }
          
         }
+
+       
     }
 }

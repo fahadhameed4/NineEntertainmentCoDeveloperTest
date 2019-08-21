@@ -10,23 +10,37 @@ namespace NineEntertainmentCoDeveloperTest.Services
     {
         
         private readonly IPersonService _personService;
+        private List<Person> people;
 
         public APIPersonService(IPersonService personService)
         {
             _personService = personService;
+             people = new List<Person>();
+             people= _personService.InitPeople();
+
         }
-        public int CountNumberofPeopleRace()
+
+        public List<string> CountNumberofPeopleRace()
         {
-            return 0;
+            List<string> racescount = new List<string>();
+            if(people.Count>0)
+            {
+                racescount.Add(people.Where(r => r.Race == Races.Angles).Count().ToString());
+                racescount.Add(people.Where(r => r.Race == Races.Hawaiian).Count().ToString());
+                racescount.Add(people.Where(r => r.Race == Races.Jutes).Count().ToString());
+                racescount.Add(people.Where(r => r.Race == Races.Saxons).Count().ToString());
+            }
+            
+            return racescount;
         }
         /// <summary>
         /// finds the average for all the ages 
         /// </summary>
         /// <returns></returns>
 
-        public decimal GetAverageAge()
+        public int GetAverageAge()
         {
-            return _personService.GetAllRaces().Count > 0 ? Convert.ToDecimal(_personService.GetAllRaces().Select(x => x.Age).ToList().Average()) : (decimal)0;
+            return _personService.GetAllRaces().Count > 0 ? Convert.ToInt32(_personService.GetAllRaces().Select(x => x.Age).ToList().Average()) : (Int32)0;
         }
         /// <summary>
         /// finds the Max of all the Ages
@@ -53,5 +67,6 @@ namespace NineEntertainmentCoDeveloperTest.Services
         {
             return _personService.GetAllRaces().Count > 0 ? _personService.GetAllRaces().Select(x => x.Age).ToList().Max() : 0;
         }
+
     }
 }

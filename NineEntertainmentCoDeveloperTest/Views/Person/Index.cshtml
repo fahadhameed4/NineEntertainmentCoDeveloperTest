@@ -6,9 +6,32 @@
 <div class="form-group">
     <label asp-for="Race" class="col-md-2 control-label"></label>
     <div class="col-md-10 dropdown">
-        <select asp-for="Race" asp-items="Html.GetEnumSelectList<Races>()">
+        <select id="RacesList" asp-for="Race" asp-items="Html.GetEnumSelectList<Races>()">
             <option selected="selected" value="">Please select</option>
         </select>
         <span asp-validation-for="Race" class="text-danger" />
     </div>
 </div>
+<div id="loadpeopleDiv" style="padding-bottom:20px;">
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js"></script>
+<script type="text/javascript">
+
+     $("#RacesList").change(function () {
+         var Raceid = $("#RacesList").val();
+         //displayModal('Loading Races Details... ', devProfile);
+         $.ajax({
+             url: '@Url.Action("GetPeopleRaces")',
+             data: { Raceid: Raceid },
+             cache: false,
+             type: "POST",
+             datatype: "html",
+             success: function (data) {
+                 $("#loadpeopleDiv").html(data);
+             }
+         });
+     });
+
+</script>

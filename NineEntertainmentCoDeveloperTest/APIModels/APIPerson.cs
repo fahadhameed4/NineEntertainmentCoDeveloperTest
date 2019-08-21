@@ -16,6 +16,8 @@ namespace NineEntertainmentCoDeveloperTest.APIModels
        public int MinAge { get; set; }
        public int MaxAge { get; set; }
        public int CountNumberofPeopleRace { get; set; }
+       public List<string> NumberofPeopleRaces { get; set; }
+
 
     }
 

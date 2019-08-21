@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace NineEntertainmentCoDeveloperTest.Services
 {
-    interface IAPIPersonService
+   public interface IAPIPersonService
     {
         int GetNumberofPeople();
         int GetMinAge();
         int GetMaxAge();
-        decimal GetAverageAge();
-        int CountNumberofPeopleRace();
+        int GetAverageAge();
+        List<string> CountNumberofPeopleRace();
        
     }
 }
