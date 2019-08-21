@@ -1,15 +1,15 @@
 ﻿
 @model Person
-<div> </div>
-<div> </div>
-<div> </div>
+
+<div style="padding-top:20px;"></div>
 <div class="form-group">
-    <label asp-for="Race" class="col-md-2 control-label"></label>
-    <div class="col-md-10 dropdown">
+    <label asp-for="Race" class="col-md-1 control-label"></label>
+    <div class="col-md-11 dropdown">
         <select id="RacesList" asp-for="Race" asp-items="Html.GetEnumSelectList<Races>()">
             <option selected="selected" value="">Please select</option>
         </select>
         <span asp-validation-for="Race" class="text-danger" />
+        <img src="~/images/AjaxLoader.gif" />
     </div>
 </div>
 <div id="loadpeopleDiv" style="padding-bottom:20px;">
@@ -21,7 +21,7 @@
 
      $("#RacesList").change(function () {
          var Raceid = $("#RacesList").val();
-         //displayModal('Loading Races Details... ', devProfile);
+         displayModal('Loading Races Details... ');
          $.ajax({
              url: '@Url.Action("GetPeopleRaces")',
              data: { Raceid: Raceid },
@@ -30,8 +30,27 @@
              datatype: "html",
              success: function (data) {
                  $("#loadpeopleDiv").html(data);
+                 $('#myModal').modal('hide');
              }
          });
-     });
+    });
+    //this is the loader method which show loader incase the popualting takes time
+    function displayModal(message) {
+        var imgTag = '<img src="/wwwwroot/Images/AjaxLoader.gif"/>';
+        var modalHtml = '<div class="modal fade mload" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">'
+            + '<div class=" modal-dialog">'
+            + '<div class="modal-content">'
+            + '<div class="modal-header">'
+            + '<h4 class="modal-title" id="myModalLabel">Processing Data</h4>'
+            + '</div>'
+            + '<div class="modal-body">'
+            + message + imgTag
+            + '</div>'
+            + '</div>'
+            + '</div>'
+            + '</div>'
+        $('#modal-container').append(modalHtml);
+        $('#myModal').modal('show');
+    }
 
 </script>

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<NineEntertainmentCoDeveloperTest.Models.Person>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div style="padding-top:40px;" class="text-danger text-center">Races List</div>
+   
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Race)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ToString)
+                @Html.DisplayNameFor(model => model.Height)
             </th>
             <th></th>
         </tr>
@@ -28,18 +28,13 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Age)
+                @Html.DisplayFor(modelItem => item.Age) 
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Race)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ToString)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Height)
             </td>
         </tr>
 }

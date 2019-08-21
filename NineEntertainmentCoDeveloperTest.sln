@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineEntertainmentCoDeveloperTest", "NineEntertainmentCoDeveloperTest\NineEntertainmentCoDeveloperTest.csproj", "{20E76DF0-6E05-4B97-B721-A6E7154A6E85}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineEntertainmentCoDeveloperTest.Test", "NineEntertainmentCoDeveloperTest.Test\NineEntertainmentCoDeveloperTest.Test.csproj", "{EDBB9625-C5DD-46E2-B13E-3E1E60B7FE78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{20E76DF0-6E05-4B97-B721-A6E7154A6E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E76DF0-6E05-4B97-B721-A6E7154A6E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E76DF0-6E05-4B97-B721-A6E7154A6E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBB9625-C5DD-46E2-B13E-3E1E60B7FE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBB9625-C5DD-46E2-B13E-3E1E60B7FE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBB9625-C5DD-46E2-B13E-3E1E60B7FE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBB9625-C5DD-46E2-B13E-3E1E60B7FE78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

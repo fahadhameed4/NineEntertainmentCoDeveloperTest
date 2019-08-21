@@ -27,12 +27,13 @@ namespace NineEntertainmentCoDeveloperTest.Services
             Random rnd = new Random();
             for (int i = 0; i < 10000; i++)
             {
-                people.Add(new Person()
-                {
-                    Name = "Person #" + i.ToString(),
-                    Age = rnd.Next(1, 99),
-                    Race =  GetRace( rnd.Next(1, 4))
-                });
+                Person person = new Person();
+
+                person.Name = "Person #" + i.ToString();
+                person.Age = rnd.Next(1, 99);
+                person.Race = GetRace(rnd.Next(1, 4));
+                person.Height = GetHeight(person);
+                people.Add(person);
             }
             return  people;
         }

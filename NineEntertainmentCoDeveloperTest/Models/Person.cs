@@ -15,7 +15,7 @@ namespace NineEntertainmentCoDeveloperTest.Models
        public string Name { get; set ; }
        public int Age { get; set; }
        public Races Race { get; set; }
-       public double Height { get;set; }
+       public double Height { get; set; }
        public new string ToString => "My name is '" + Name + "' and I am " + Age + " years old.";
 
     }
